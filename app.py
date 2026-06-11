@@ -222,10 +222,11 @@ button[data-testid="stChatInputButton"] {
     line-height: 1.6;
 }
 
+/* Hero section - sudah di tengah */
 .hero-section {
     text-align: center;
     padding: 50px 20px;
-    background: #1E293B;
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
     border-radius: 25px;
     border: 1px solid rgba(255,255,255,0.1);
     margin-bottom: 40px;
@@ -233,18 +234,21 @@ button[data-testid="stChatInputButton"] {
 
 .hero-title {
     color: white;
-    font-size: 2.8rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .hero-subtitle {
     font-size: 1.1rem;
     color: #cbd5e1;
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
+    line-height: 1.6;
+    text-align: center;
 }
 
-/* Pahlawan card grid - menampilkan gambar asli tanpa dipotong */
+/* Pahlawan card grid */
 .pahlawan-card {
     background: #0F172A;
     border: 1px solid rgba(255,255,255,0.1);
@@ -258,20 +262,6 @@ button[data-testid="stChatInputButton"] {
 .pahlawan-card:hover {
     transform: translateY(-5px);
     border-color: #F59E0B;
-}
-
-.pahlawan-image {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.pahlawan-name {
-    color: #F59E0B;
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 10px 0 5px 0;
 }
 
 /* Law section styling */
@@ -306,6 +296,14 @@ button[data-testid="stChatInputButton"] {
     color: #F59E0B;
     font-weight: bold;
     margin-bottom: 8px;
+}
+
+/* Stats container */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0;
 }
 
 </style>
@@ -373,16 +371,17 @@ st.markdown("---")
 # =====================================================
 if st.session_state.current_page == "Beranda":
     
+    # Hero Section - Sudah di tengah dengan CSS class yang diperbaiki
     st.markdown("""
     <div class="hero-section">
         <h1 class="hero-title">🎓 Donasi Fasilitas Pembelajaran Anak Kurang Mampu</h1>
         <p class="hero-subtitle">
-            Program donasi sosial untuk membantu penyediaan buku pembelajaran, alat tulis siswa, fasilitas belajar,
-            biaya operasional pengajar sukarela, dan beasiswa bagi anak-anak kurang mampu di Kota Semarang.
+            Program donasi sosial untuk membantu penyediaan buku pembelajaran, alat tulis siswa, fasilitas belajar, biaya operasional pengajar sukarela, dan beasiswa bagi anak-anak kurang mampu di Kota Semarang.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
+    # Centered statistics section
     stat_col_left, stat_col_mid, stat_col_right = st.columns([1, 4, 1])
     with stat_col_mid:
         c1, c2, c3 = st.columns(3)
@@ -509,19 +508,16 @@ if st.session_state.current_page == "Beranda":
         }
     ]
     
-    # Grid 3 kolom untuk pahlawan - menampilkan gambar asli dengan semua keterangan yang ada di dalamnya
+    # Grid 3 kolom untuk pahlawan - menampilkan gambar asli
     pahlawan_cols = st.columns(3)
     for idx, pahlawan in enumerate(pahlawan_list):
         with pahlawan_cols[idx % 3]:
             try:
-                # Menampilkan gambar asli tanpa modifikasi (persegi/rectangle)
-                # Gambar sudah berisi keterangan profil pahlawan di dalamnya
                 st.image(pahlawan["img_path"], use_container_width=True)
                 st.markdown(f"""
                 <p style="text-align: center; color: #F59E0B; font-weight: 600; margin-top: 8px; font-size: 0.9rem;">{pahlawan['nama']}</p>
                 """, unsafe_allow_html=True)
             except Exception as e:
-                # Fallback jika gambar tidak ditemukan
                 st.markdown(f"""
                 <div style="background:#1E293B; border-radius:12px; padding:40px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
                     <span style="font-size:4rem;">🖼️</span>
