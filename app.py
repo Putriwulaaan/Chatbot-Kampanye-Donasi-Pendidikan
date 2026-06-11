@@ -734,10 +734,6 @@ with st.sidebar:
     st.write(f"Total Donasi : **Rp {bot.calculate_total():,}**")
 
     st.divider()
-    st.subheader("📌 Status FSM")
-    st.code(bot.state.name)
-
-    st.divider()
     st.subheader("💡 Contoh Perintah Chatbot")
     st.markdown("""
     - Halo
