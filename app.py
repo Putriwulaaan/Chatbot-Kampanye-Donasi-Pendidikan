@@ -244,8 +244,8 @@ button[data-testid="stChatInputButton"] {
 
 .hero-title {
     color: white;
-    font-size: 2.8rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -256,9 +256,10 @@ button[data-testid="stChatInputButton"] {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    line-height: 1.6;
 }
 
-/* Pahlawan card grid */
+/* Pahlawan card grid - TIDAK BULAT */
 .pahlawan-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -278,29 +279,6 @@ button[data-testid="stChatInputButton"] {
 .pahlawan-card:hover {
     transform: translateY(-5px);
     border-color: #F59E0B;
-}
-
-.pahlawan-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 10px auto;
-    display: block;
-    background: #334155;
-}
-
-.pahlawan-name {
-    color: #F59E0B;
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 10px 0 5px 0;
-}
-
-.pahlawan-desc {
-    color: #94A3B8;
-    font-size: 0.8rem;
-    line-height: 1.4;
 }
 
 /* Law section styling */
@@ -406,6 +384,7 @@ if st.session_state.current_page == "Beranda":
     <div class="hero-section">
         <h1 class="hero-title">🎓 Donasi Fasilitas Pembelajaran Anak Kurang Mampu</h1>
         <p class="hero-subtitle">
+            Program donasi sosial untuk membantu penyediaan buku pembelajaran, alat tulis siswa, fasilitas belajar, biaya operasional pengajar sukarela, dan beasiswa bagi anak-anak kurang mampu di Kota Semarang.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -497,7 +476,7 @@ if st.session_state.current_page == "Beranda":
         </div>
         """, unsafe_allow_html=True)
 
-    # PAHLAWAN PENDIDIKAN INDONESIA
+    # PAHLAWAN PENDIDIKAN INDONESIA - TAMPILAN FOTO PERSEGI (TIDAK BULAT)
     st.markdown("""
     <div class="info-card">
         <h3>🦸 Pahlawan Pendidikan Indonesia</h3>
@@ -505,58 +484,51 @@ if st.session_state.current_page == "Beranda":
     </div>
     """, unsafe_allow_html=True)
     
+    # Data pahlawan dengan path gambar yang benar
     pahlawan_list = [
         {
             "nama": "Raden Ayu Lasminingrat",
-            "deskripsi": "Pahlawan nasional asal Garut, pelopor pendidikan perempuan dan pendiri sekolah khusus perempuan 'Sekola Kautamaan Istri'.",
-            "img_path": "assets/images/pahlawan_raden_ayu_lasminingrat.jpeg"
+            "img_path": "Pahlaawan Raden Ayu Lasminingrat.jpeg"
         },
         {
             "nama": "Roehana Koeddoes",
-            "deskripsi": "Tokoh pers perempuan dan pendidikan asal Sumatera Barat, pendiri sekolah keterampilan untuk perempuan.",
-            "img_path": "assets/images/pahlawan_roehana_koeddoes.jpeg"
+            "img_path": "Pahlaawan Roehana Koddoes.jpeg"
         },
         {
             "nama": "KH Ahmad Dahlan",
-            "deskripsi": "Pendiri Muhammadiyah, pelopor pendidikan modern berbasis Islam yang terbuka untuk semua golongan.",
-            "img_path": "assets/images/pahlawan_kh_ahmad_dahlan.jpeg"
+            "img_path": "Pahlawan KH.Ahmad Dahlan.jpeg"
         },
         {
             "nama": "Ki Hajar Dewantara",
-            "deskripsi": "Bapak Pendidikan Nasional, pendiri Taman Siswa, pencetus semboyan 'Ing Ngarsa Sung Tuladha'.",
-            "img_path": "assets/images/pahlawan_ki_hajar_dewantara.jpeg"
+            "img_path": "Pahlawan Ki Hajar Dewantara.jpeg"
         },
         {
             "nama": "Mohammad Sjafei",
-            "deskripsi": "Pendiri INS Kayutanam, pelopor pendidikan 'Sistem Among' dan pendidikan keterampilan.",
-            "img_path": "assets/images/pahlawan_mohammad_sjafei.jpeg"
+            "img_path": "Pahlawan Mohammad Sjafei.jpeg"
         },
         {
             "nama": "Raden Dewi Sartika",
-            "deskripsi": "Pahlawan nasional asal Jawa Barat, pendiri sekolah pertama untuk perempuan 'Sakola Istri'.",
-            "img_path": "assets/images/pahlawan_raden_dewi_sartika.jpeg"
+            "img_path": "Pahlawawan Raden Dewi Sartika.jpeg"
         }
     ]
     
+    # Grid 3 kolom untuk pahlawan - TAMPILAN FOTO PERSEGI (TIDAK DIBULATKAN)
     pahlawan_cols = st.columns(3)
     for idx, pahlawan in enumerate(pahlawan_list):
         with pahlawan_cols[idx % 3]:
             try:
-                st.image(pahlawan["img_path"], width=120, use_container_width=False)
-            except:
+                # Menampilkan gambar asli persegi/rectangle tanpa dipotong bulat
+                st.image(pahlawan["img_path"], use_container_width=True)
+                st.markdown(f"<p style='text-align: center; color: #F59E0B; font-weight: 600; margin-top: 8px; font-size: 0.9rem;'>{pahlawan['nama']}</p>", unsafe_allow_html=True)
+            except Exception as e:
+                # Fallback jika gambar tidak ditemukan
                 st.markdown(f"""
-                <div style="width:120px; height:120px; background:#334155; border-radius:50%; margin:0 auto 10px auto; display:flex; align-items:center; justify-content:center;">
-                    <span style="font-size:3rem;">👤</span>
+                <div style="background:#1E293B; border-radius:12px; padding:40px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
+                    <span style="font-size:4rem;">🖼️</span>
+                    <p style="color:#94A3B8; margin-top:10px;">Gambar tidak tersedia</p>
+                    <p style="color:#F59E0B; font-weight:600;">{pahlawan['nama']}</p>
                 </div>
                 """, unsafe_allow_html=True)
-            
-            st.markdown(f"""
-            <div style="text-align:center;">
-                <p style="color:#F59E0B; font-weight:bold; margin:10px 0 5px 0;">{pahlawan['nama']}</p>
-                <p style="color:#94A3B8; font-size:0.8rem; line-height:1.4; text-align:center;">{pahlawan['deskripsi']}</p>
-            </div>
-            """, unsafe_allow_html=True)
-            st.markdown("<br>", unsafe_allow_html=True)
 
     # DASAR HUKUM PENDIDIKAN
     st.markdown("""
