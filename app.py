@@ -144,41 +144,35 @@ div[data-testid="stTextInput"] > div {
 /* ======================
    CHAT BUBBLES & INPUT 
 ====================== */
-/* General chat message styling */
 .stChatMessage {
     border-radius: 20px;
     padding: 15px;
     margin-bottom: 10px;
 }
 
-/* Bot (Assistant) bubble color variation */
 [data-testid="stChatMessageAssistant"] {
     background-color: #1E293B !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
-/* User bubble color variation */
 [data-testid="stChatMessageUser"] {
     background-color: #334155 !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Text colors inside chat messages */
 .stChatMessage p, .stChatMessage li {
-    color: #CBD5E1 !important; /* Light slate for general text and list items */
+    color: #CBD5E1 !important;
     line-height: 1.6;
 }
 
 .stChatMessage h1, .stChatMessage h2, .stChatMessage h3, .stChatMessage h4, .stChatMessage strong {
-    color: #FFFFFF !important; /* Pure white for headers and bold titles */
+    color: #FFFFFF !important;
 }
 
-/* Ensure the bottom chat container follows the theme */
 [data-testid="stBottomBlockContainer"] {
     background-color: #0F172A !important;
 }
 
-/* CHAT INPUT BOX - WHITE THEME */
 div[data-testid="stChatInput"] {
     background: white !important;
     border-radius: 30px !important;
@@ -187,21 +181,20 @@ div[data-testid="stChatInput"] {
 }
 
 div[data-testid="stChatInput"] textarea {
-    color: #0F172A !important; /* Dark text for white background */
+    color: #0F172A !important;
 }
 
 div[data-testid="stChatInput"] textarea::placeholder {
     color: #64748B !important;
 }
 
-/* Send Button consistency */
 button[data-testid="stChatInputButton"] {
     background-color: #F59E0B !important;
     border-radius: 50% !important;
 }
 
 /* ======================
-   INFO CARDS STYLES (NEW)
+   INFO CARDS STYLES
 ====================== */
 .info-card {
     background: #1E293B;
@@ -229,7 +222,6 @@ button[data-testid="stChatInputButton"] {
     line-height: 1.6;
 }
 
-/* Hero section */
 .hero-section {
     text-align: center;
     padding: 50px 20px;
@@ -252,14 +244,7 @@ button[data-testid="stChatInputButton"] {
     margin: 0 auto;
 }
 
-/* Pahlawan card grid */
-.pahlawan-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
+/* Pahlawan card grid - menampilkan gambar asli tanpa dipotong */
 .pahlawan-card {
     background: #0F172A;
     border: 1px solid rgba(255,255,255,0.1);
@@ -267,6 +252,7 @@ button[data-testid="stChatInputButton"] {
     padding: 15px;
     text-align: center;
     transition: all 0.3s;
+    margin-bottom: 20px;
 }
 
 .pahlawan-card:hover {
@@ -275,13 +261,10 @@ button[data-testid="stChatInputButton"] {
 }
 
 .pahlawan-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 10px auto;
-    display: block;
-    background: #334155;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .pahlawan-name {
@@ -289,12 +272,6 @@ button[data-testid="stChatInputButton"] {
     font-size: 1rem;
     font-weight: bold;
     margin: 10px 0 5px 0;
-}
-
-.pahlawan-desc {
-    color: #94A3B8;
-    font-size: 0.8rem;
-    line-height: 1.4;
 }
 
 /* Law section styling */
@@ -351,19 +328,15 @@ if "bot_fsm" not in st.session_state:
 if "show_success" not in st.session_state:
     st.session_state.show_success = False
 
-# State untuk mengatur navigasi halaman (Landing Page Concept)
 if "current_page" not in st.session_state:
     st.session_state.current_page = "Beranda"
 
-# State untuk menyimpan input form agar tidak hilang saat pindah tab
 if "form_kecamatan" not in st.session_state:
     st.session_state.form_kecamatan = "Banyumanik"
 if "form_program" not in st.session_state:
     st.session_state.form_program = "SD"
 
 bot = st.session_state.bot_fsm
-
-# Sinkronisasi state form ke FSM Engine
 bot.lokasi = st.session_state.form_kecamatan
 bot.program = st.session_state.form_program
 
@@ -373,7 +346,6 @@ bot.program = st.session_state.form_program
 
 col1, col2, col3, col4, col5 = st.columns(5)
 
-# Gunakan use_container_width agar kotak tombol penuh dan presisi tidak bercelah
 with col1:
     if st.button("🏠 Beranda", use_container_width=True):
         st.session_state.current_page = "Beranda"
@@ -411,7 +383,6 @@ if st.session_state.current_page == "Beranda":
     </div>
     """, unsafe_allow_html=True)
 
-    # Centered statistics section
     stat_col_left, stat_col_mid, stat_col_right = st.columns([1, 4, 1])
     with stat_col_mid:
         c1, c2, c3 = st.columns(3)
@@ -449,7 +420,7 @@ if st.session_state.current_page == "Beranda":
         """, unsafe_allow_html=True)
 
     # =====================================================
-    # SECTION 1: SEJARAH PENDIDIKAN INDONESIA (NEW)
+    # SECTION 1: SEJARAH PENDIDIKAN INDONESIA
     # =====================================================
     st.markdown("---")
     st.markdown("""
@@ -501,7 +472,7 @@ if st.session_state.current_page == "Beranda":
         """, unsafe_allow_html=True)
 
     # =====================================================
-    # SECTION 2: PAHLAWAN PENDIDIKAN INDONESIA (NEW)
+    # SECTION 2: PAHLAWAN PENDIDIKAN INDONESIA
     # =====================================================
     st.markdown("""
     <div class="info-card">
@@ -510,65 +481,57 @@ if st.session_state.current_page == "Beranda":
     </div>
     """, unsafe_allow_html=True)
     
-    # Data pahlawan
+    # Data pahlawan dengan path gambar yang benar
     pahlawan_list = [
         {
             "nama": "Raden Ayu Lasminingrat",
-            "deskripsi": "Pahlawan nasional asal Garut, pelopor pendidikan perempuan dan pendiri sekolah khusus perempuan 'Sekola Kautamaan Istri'.",
-            "img_path": "assets/images/pahlawan_raden_ayu_lasminingrat.jpeg"
+            "img_path": "Pahlaawan Raden Ayu Lasminingrat.jpeg"
         },
         {
             "nama": "Roehana Koeddoes",
-            "deskripsi": "Tokoh pers perempuan dan pendidikan asal Sumatera Barat, pendiri sekolah keterampilan untuk perempuan.",
-            "img_path": "assets/images/pahlawan_roehana_koeddoes.jpeg"
+            "img_path": "Pahlaawan Roehana Koddoes.jpeg"
         },
         {
             "nama": "KH Ahmad Dahlan",
-            "deskripsi": "Pendiri Muhammadiyah, pelopor pendidikan modern berbasis Islam yang terbuka untuk semua golongan.",
-            "img_path": "assets/images/pahlawan_kh_ahmad_dahlan.jpeg"
+            "img_path": "Pahlawan KH.Ahmad Dahlan.jpeg"
         },
         {
             "nama": "Ki Hajar Dewantara",
-            "deskripsi": "Bapak Pendidikan Nasional, pendiri Taman Siswa, pencetus semboyan 'Ing Ngarsa Sung Tuladha'.",
-            "img_path": "assets/images/pahlawan_ki_hajar_dewantara.jpeg"
+            "img_path": "Pahlawan Ki Hajar Dewantara.jpeg"
         },
         {
             "nama": "Mohammad Sjafei",
-            "deskripsi": "Pendiri INS Kayutanam, pelopor pendidikan 'Sistem Among' dan pendidikan keterampilan.",
-            "img_path": "assets/images/pahlawan_mohammad_sjafei.jpeg"
+            "img_path": "Pahlawan Mohammad Sjafei.jpeg"
         },
         {
             "nama": "Raden Dewi Sartika",
-            "deskripsi": "Pahlawan nasional asal Jawa Barat, pendiri sekolah pertama untuk perempuan 'Sakola Istri'.",
-            "img_path": "assets/images/pahlawan_raden_dewi_sartika.jpeg"
+            "img_path": "Pahlawawan Raden Dewi Sartika.jpeg"
         }
     ]
     
-    # Grid 3 kolom untuk pahlawan
+    # Grid 3 kolom untuk pahlawan - menampilkan gambar asli dengan semua keterangan yang ada di dalamnya
     pahlawan_cols = st.columns(3)
     for idx, pahlawan in enumerate(pahlawan_list):
         with pahlawan_cols[idx % 3]:
-            # Menggunakan st.image dengan try-except untuk menangani jika file gambar tidak ada
             try:
-                st.image(pahlawan["img_path"], width=120, use_container_width=False)
-            except:
+                # Menampilkan gambar asli tanpa modifikasi (persegi/rectangle)
+                # Gambar sudah berisi keterangan profil pahlawan di dalamnya
+                st.image(pahlawan["img_path"], use_container_width=True)
+                st.markdown(f"""
+                <p style="text-align: center; color: #F59E0B; font-weight: 600; margin-top: 8px; font-size: 0.9rem;">{pahlawan['nama']}</p>
+                """, unsafe_allow_html=True)
+            except Exception as e:
                 # Fallback jika gambar tidak ditemukan
                 st.markdown(f"""
-                <div style="width:120px; height:120px; background:#334155; border-radius:50%; margin:0 auto 10px auto; display:flex; align-items:center; justify-content:center;">
-                    <span style="font-size:3rem;">👤</span>
+                <div style="background:#1E293B; border-radius:12px; padding:40px; text-align:center; border:1px solid rgba(255,255,255,0.1);">
+                    <span style="font-size:4rem;">🖼️</span>
+                    <p style="color:#94A3B8; margin-top:10px;">Gambar tidak tersedia</p>
+                    <p style="color:#F59E0B; font-weight:600;">{pahlawan['nama']}</p>
                 </div>
                 """, unsafe_allow_html=True)
-            
-            st.markdown(f"""
-            <div style="text-align:center;">
-                <p style="color:#F59E0B; font-weight:bold; margin:10px 0 5px 0;">{pahlawan['nama']}</p>
-                <p style="color:#94A3B8; font-size:0.8rem; line-height:1.4; text-align:center;">{pahlawan['deskripsi']}</p>
-            </div>
-            """, unsafe_allow_html=True)
-            st.markdown("<br>", unsafe_allow_html=True)
 
     # =====================================================
-    # SECTION 3: DASAR HUKUM PENDIDIKAN (NEW)
+    # SECTION 3: DASAR HUKUM PENDIDIKAN
     # =====================================================
     st.markdown("""
     <div class="info-card">
@@ -697,7 +660,6 @@ elif st.session_state.current_page == "Keranjang":
     else:
         for item in bot.engine.cart:
             subtotal = item["price"] * item["qty"]
-            # Formatting rapi untuk keranjang
             st.markdown(f"""
             <div style="background:#1E293B; padding:15px; border-radius:15px; border:1px solid rgba(255,255,255,0.08); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
                 <span><b>{item['emoji']} {item['item']}</b> (x{item['qty']})</span>
@@ -719,7 +681,6 @@ elif st.session_state.current_page == "Keranjang":
                 bot.engine.clear_cart()
                 st.rerun()
 
-    # Tampilan SPLASH SUCCESS
     if st.session_state.show_success:
         st.balloons()
         st.markdown("""
@@ -782,7 +743,6 @@ with st.sidebar:
 
     st.divider()
     st.subheader("💡 Contoh Perintah Chatbot")
-    # Menghapus format backtick (`) agar tidak dirender sebagai code block abu-abu
     st.markdown("""
     - Halo
     - Menu
