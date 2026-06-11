@@ -50,7 +50,7 @@ section[data-testid="stSidebar"] * {
     background: #D97706;
 }
 
-/* METRICS - WARNA PUTIH */
+/* METRICS */
 div[data-testid="stMetricValue"] {
     color: #FFFFFF !important;
     font-weight: bold !important;
@@ -125,6 +125,11 @@ button[data-testid="stChatInputButton"] {
 }
 
 /* HERO SECTION - RATA TENGAH */
+.hero-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .hero-card {
     text-align: center;
     padding: 50px 30px;
@@ -132,10 +137,12 @@ button[data-testid="stChatInputButton"] {
     border-radius: 25px;
     border: 1px solid rgba(255,255,255,0.1);
     margin-bottom: 40px;
+    width: 100%;
+    max-width: 1200px;
 }
 .hero-title {
     color: white;
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -179,7 +186,10 @@ button[data-testid="stChatInputButton"] {
 </style>
 """, unsafe_allow_html=True)
 
-# SESSION STATE
+# =====================================================
+# SESSION STATE & ROUTING
+# =====================================================
+
 if "bot_fsm" not in st.session_state:
     st.session_state.bot_fsm = DonationFSM()
     st.session_state.bot_fsm.step()
@@ -200,7 +210,10 @@ bot = st.session_state.bot_fsm
 bot.lokasi = st.session_state.form_kecamatan
 bot.program = st.session_state.form_program
 
+# =====================================================
 # NAVBAR
+# =====================================================
+
 col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
@@ -225,18 +238,24 @@ with col5:
 
 st.markdown("---")
 
+# =====================================================
 # HALAMAN BERANDA
+# =====================================================
 if st.session_state.current_page == "Beranda":
     
+    # HERO SECTION - RATA TENGAH
     st.markdown("""
-    <div class="hero-card">
-        <h1 class="hero-title">🎓 Donasi Fasilitas Pembelajaran Anak Kurang Mampu</h1>
-        <p class="hero-subtitle">
-            Program donasi sosial untuk membantu penyediaan buku pembelajaran, alat tulis siswa, fasilitas belajar, biaya operasional pengajar sukarela, dan beasiswa bagi anak-anak kurang mampu di Kota Semarang.
-        </p>
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <div style="text-align: center; padding: 50px 30px; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px; width: 100%;">
+            <h1 style="color: white; font-size: 2rem; margin-bottom: 20px;">🎓 Donasi Fasilitas Pembelajaran Anak Kurang Mampu</h1>
+            <p style="font-size: 1rem; color: #cbd5e1; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                Program donasi sosial untuk membantu penyediaan buku pembelajaran, alat tulis siswa, fasilitas belajar, biaya operasional pengajar sukarela, dan beasiswa bagi anak-anak kurang mampu di Kota Semarang.
+            </p>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
+    # STATISTIK
     col_left, col_mid, col_right = st.columns([1, 3, 1])
     with col_mid:
         c1, c2, c3 = st.columns(3)
@@ -249,6 +268,7 @@ if st.session_state.current_page == "Beranda":
 
     st.markdown("<br>", unsafe_allow_html=True)
     
+    # VISI MISI
     st.markdown("<h2 style='text-align: center; margin-bottom: 30px; color: white;'>🎯 Visi dan Misi Program</h2>", unsafe_allow_html=True)
     
     v1, v2 = st.columns(2)
@@ -344,8 +364,11 @@ if st.session_state.current_page == "Beranda":
         </div>
         """, unsafe_allow_html=True)
 
+# =====================================================
 # HALAMAN KATALOG
+# =====================================================
 elif st.session_state.current_page == "Katalog":
+
     st.markdown("""
     <div style="background:#1E293B; padding:30px; border-radius:20px; margin-bottom:30px;">
         <h2 style="color:white;">📍 Data Donatur</h2>
@@ -391,7 +414,9 @@ elif st.session_state.current_page == "Katalog":
                         </div>
                         """, unsafe_allow_html=True)
 
+# =====================================================
 # HALAMAN KERANJANG
+# =====================================================
 elif st.session_state.current_page == "Keranjang":
     st.header("🛒 Keranjang Donasi")
     if not bot.engine.cart:
@@ -423,7 +448,9 @@ elif st.session_state.current_page == "Keranjang":
             st.session_state.current_page = "Beranda"
             st.rerun()
 
+# =====================================================
 # HALAMAN CHATBOT
+# =====================================================
 elif st.session_state.current_page == "Chatbot":
     st.header("🤖 Chatbot Donasi")
     for message in st.session_state.messages:
@@ -439,7 +466,9 @@ elif st.session_state.current_page == "Chatbot":
             st.session_state.show_success = True
         st.rerun()
 
+# =====================================================
 # SIDEBAR
+# =====================================================
 with st.sidebar:
     st.header("📋 Informasi Donasi")
     st.write(f"📍 Kecamatan : **{st.session_state.form_kecamatan}**")
