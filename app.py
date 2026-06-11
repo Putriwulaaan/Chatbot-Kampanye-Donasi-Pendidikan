@@ -58,6 +58,7 @@ section[data-testid="stSidebar"] * {
 }
 .stButton > button:hover {
     background: #D97706;
+<<<<<<< HEAD
 }
 
 /* ======================
@@ -81,6 +82,8 @@ div[data-testid="stMetric"] {
     padding: 15px;
     border-radius: 15px;
     border: 1px solid rgba(255,255,255,0.1);
+=======
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
 }
 
 /* ======================
@@ -152,8 +155,20 @@ button[data-testid="stChatInputButton"] {
 }
 
 /* ======================
+<<<<<<< HEAD
    HERO SECTION - RATA TENGAH SEMPURNA
 ====================== */
+=======
+   HERO SECTION - RATA TENGAH
+====================== */
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
 .hero-card {
     text-align: center;
     padding: 50px 30px;
@@ -175,10 +190,49 @@ button[data-testid="stChatInputButton"] {
 .hero-subtitle {
     font-size: 1rem;
     color: #cbd5e1;
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
     text-align: center;
+}
+
+<<<<<<< HEAD
+/* Timeline */
+.timeline-item {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #F59E0B;
+}
+.timeline-period {
+    color: #F59E0B;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Law article */
+.law-article {
+    background: #0F172A;
+    border-left: 4px solid #F59E0B;
+    padding: 12px 15px;
+    margin: 12px 0;
+    border-radius: 0 12px 12px 0;
+}
+.law-title {
+    color: #F59E0B;
+    font-weight: bold;
+}
+.law-quote {
+    color: #CBD5E1;
+    font-style: italic;
+    margin: 8px 0 0 20px;
+=======
+/* Stats container */
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0;
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
 }
 
 /* Timeline */
@@ -271,7 +325,11 @@ st.markdown("---")
 # =====================================================
 if st.session_state.current_page == "Beranda":
     
+<<<<<<< HEAD
     # HERO SECTION - RATA TENGAH SEMPURNA
+=======
+    # HERO SECTION - RATA TENGAH
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
     st.markdown("""
     <div class="hero-card">
         <h1 class="hero-title">🎓 Donasi Fasilitas Pembelajaran Anak Kurang Mampu</h1>
@@ -281,7 +339,11 @@ if st.session_state.current_page == "Beranda":
     </div>
     """, unsafe_allow_html=True)
 
+<<<<<<< HEAD
     # STATISTIK - RATA TENGAH DENGAN WARNA PUTIH
+=======
+    # STATISTIK - RATA TENGAH
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
     col_left, col_mid, col_right = st.columns([1, 3, 1])
     with col_mid:
         c1, c2, c3 = st.columns(3)
@@ -293,6 +355,7 @@ if st.session_state.current_page == "Beranda":
             st.metric("🏫 Lokasi Belajar", "50+")
 
     st.markdown("<br>", unsafe_allow_html=True)
+<<<<<<< HEAD
     
     # VISI MISI
     st.markdown("<h2 style='text-align: center; margin-bottom: 30px; color: white;'>🎯 Visi dan Misi Program</h2>", unsafe_allow_html=True)
@@ -303,12 +366,29 @@ if st.session_state.current_page == "Beranda":
         <div style="background:#1E293B; border-radius:20px; padding:25px; border:1px solid rgba(255,255,255,0.1);">
             <h3 style="color:#F59E0B; text-align: center;">🎯 Visi</h3>
             <p style="color:#CBD5E1; text-align: center;">Mewujudkan akses pendidikan yang layak, inklusif, dan berkualitas bagi anak-anak kurang mampu di Kota Semarang.</p>
+=======
+    
+    # VISI MISI
+    st.markdown("<h2 style='text-align: center; margin-bottom: 30px;'>🎯 Visi dan Misi Program</h2>", unsafe_allow_html=True)
+    
+    v1, v2 = st.columns(2)
+    with v1:
+        st.markdown("""
+        <div style="background:#1E293B; border-radius:20px; padding:25px;">
+            <h3 style="color:#F59E0B;">🎯 Visi</h3>
+            <p style="color:#CBD5E1;">Mewujudkan akses pendidikan yang layak, inklusif, dan berkualitas bagi anak-anak kurang mampu di Kota Semarang.</p>
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
         </div>
         """, unsafe_allow_html=True)
     with v2:
         st.markdown("""
+<<<<<<< HEAD
         <div style="background:#1E293B; border-radius:20px; padding:25px; border:1px solid rgba(255,255,255,0.1);">
             <h3 style="color:#10B981; text-align: center;">🚀 Misi</h3>
+=======
+        <div style="background:#1E293B; border-radius:20px; padding:25px;">
+            <h3 style="color:#10B981;">🚀 Misi</h3>
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
             <ul style="color:#CBD5E1; padding-left:20px;">
                 <li>Menyediakan fasilitas belajar yang memadai</li>
                 <li>Membantu kebutuhan alat tulis siswa</li>
@@ -320,34 +400,58 @@ if st.session_state.current_page == "Beranda":
 
     # SEJARAH PENDIDIKAN
     st.markdown("---")
+<<<<<<< HEAD
     st.markdown("<div class='info-card'><h3 style='text-align: center;'>📜 Sejarah Pendidikan Indonesia</h3></div>", unsafe_allow_html=True)
+=======
+    st.markdown("<div class='info-card'><h3>📜 Sejarah Pendidikan Indonesia</h3></div>", unsafe_allow_html=True)
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
     
     sejarah_col1, sejarah_col2 = st.columns(2)
     with sejarah_col1:
         st.markdown("""
         <div class="timeline-item">
             <div class="timeline-period">🏛️ Masa Pra-Kolonial</div>
+<<<<<<< HEAD
             <ul><li>Pendidikan berpusat pada agama dan nilai moral</li><li>Dilaksanakan melalui padepokan, pesantren, surau, dan masjid</li><li>Fokus pada spiritualitas dan keterampilan hidup</li></ul>
         </div>
         <div class="timeline-item">
             <div class="timeline-period">⛵ Masa Kolonial</div>
             <ul><li>Pendidikan diperkenalkan oleh Portugis dan Belanda</li><li>Akses pendidikan bersifat terbatas dan diskriminatif</li><li>Sekolah lebih banyak untuk kepentingan administrasi kolonial</li></ul>
+=======
+            <ul><li>Pendidikan berpusat pada agama dan nilai moral</li><li>Dilaksanakan melalui padepokan, pesantren, surau, dan masjid</li></ul>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-period">⛵ Masa Kolonial</div>
+            <ul><li>Pendidikan diperkenalkan oleh Portugis dan Belanda</li><li>Akses pendidikan terbatas dan diskriminatif</li></ul>
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
         </div>
         """, unsafe_allow_html=True)
     with sejarah_col2:
         st.markdown("""
         <div class="timeline-item">
             <div class="timeline-period">🇮🇩 Masa Pergerakan Nasional</div>
+<<<<<<< HEAD
             <ul><li>Tokoh pribumi mulai mendirikan lembaga pendidikan sendiri</li><li>Pendidikan digunakan untuk membangun kesadaran kebangsaan</li><li>Muncul tokoh seperti KH Ahmad Dahlan dan Ki Hajar Dewantara</li></ul>
         </div>
         <div class="timeline-item">
             <div class="timeline-period">🚀 Masa Kemerdekaan hingga Modern</div>
             <ul><li>Pendidikan menjadi hak seluruh warga negara</li><li>Berlandaskan Pancasila dan UUD 1945</li><li>Berkembang hingga era digital dan Kurikulum Merdeka</li></ul>
+=======
+            <ul><li>Tokoh pribumi mendirikan lembaga pendidikan sendiri</li><li>Pendidikan untuk membangun kesadaran kebangsaan</li></ul>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-period">🚀 Masa Kemerdekaan hingga Modern</div>
+            <ul><li>Pendidikan menjadi hak seluruh warga negara</li><li>Berlandaskan Pancasila dan UUD 1945</li></ul>
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
         </div>
         """, unsafe_allow_html=True)
 
     # PAHLAWAN PENDIDIKAN
+<<<<<<< HEAD
     st.markdown("<div class='info-card'><h3 style='text-align: center;'>🦸 Pahlawan Pendidikan Indonesia</h3><p style='text-align: center;'>Tokoh-tokoh yang berjasa memajukan pendidikan di Indonesia</p></div>", unsafe_allow_html=True)
+=======
+    st.markdown("<div class='info-card'><h3>🦸 Pahlawan Pendidikan Indonesia</h3><p>Tokoh-tokoh yang berjasa memajukan pendidikan di Indonesia</p></div>", unsafe_allow_html=True)
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
     
     pahlawan_list = [
         {"nama": "Raden Ayu Lasminingrat", "img_path": "Pahlaawan Raden Ayu Lasminingrat.jpeg"},
@@ -363,18 +467,30 @@ if st.session_state.current_page == "Beranda":
         with pahlawan_cols[idx % 3]:
             try:
                 st.image(pahlawan["img_path"], use_container_width=True)
+<<<<<<< HEAD
                 st.markdown(f"<p style='text-align:center; color:#F59E0B; font-weight:600; margin-top:8px;'>{pahlawan['nama']}</p>", unsafe_allow_html=True)
+=======
+                st.markdown(f"<p style='text-align:center; color:#F59E0B; font-weight:600;'>{pahlawan['nama']}</p>", unsafe_allow_html=True)
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
             except:
                 st.markdown(f"<div style='text-align:center; padding:40px; background:#1E293B; border-radius:12px;'>🖼️<br>{pahlawan['nama']}</div>", unsafe_allow_html=True)
 
     # DASAR HUKUM
+<<<<<<< HEAD
     st.markdown("<div class='info-card'><h3 style='text-align: center;'>⚖️ Dasar Hukum Pendidikan Indonesia</h3></div>", unsafe_allow_html=True)
+=======
+    st.markdown("<div class='info-card'><h3>⚖️ Dasar Hukum Pendidikan Indonesia</h3></div>", unsafe_allow_html=True)
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
     
     hukum_col1, hukum_col2 = st.columns(2)
     with hukum_col1:
         st.markdown("""
         <div style="background:#0F172A; border-radius:15px; padding:15px;">
+<<<<<<< HEAD
             <h4 style="color:#F59E0B; text-align: center;">📜 UUD 1945</h4>
+=======
+            <h4 style="color:#F59E0B;">📜 UUD 1945</h4>
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
             <div class="law-article"><div class="law-title">Pasal 31 Ayat (1)</div><div class="law-quote">"Setiap warga negara berhak memperoleh pendidikan."</div></div>
             <div class="law-article"><div class="law-title">Pasal 31 Ayat (2)</div><div class="law-quote">"Setiap warga negara wajib mengikuti pendidikan dasar dan pemerintah wajib membiayainya."</div></div>
             <div class="law-article"><div class="law-title">Pasal 31 Ayat (4)</div><div class="law-quote">"Anggaran pendidikan minimal 20% dari APBN dan APBD."</div></div>
@@ -383,7 +499,11 @@ if st.session_state.current_page == "Beranda":
     with hukum_col2:
         st.markdown("""
         <div style="background:#0F172A; border-radius:15px; padding:15px;">
+<<<<<<< HEAD
             <h4 style="color:#F59E0B; text-align: center;">📖 UU Nomor 20 Tahun 2003</h4>
+=======
+            <h4 style="color:#F59E0B;">📖 UU Nomor 20 Tahun 2003</h4>
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
             <div class="law-article"><div class="law-title">Pasal 5</div><div class="law-quote">"Hak setiap warga negara untuk memperoleh pendidikan bermutu."</div></div>
             <div class="law-article"><div class="law-title">Pasal 6</div><div class="law-quote">"Kewajiban mengikuti pendidikan dasar bagi usia 7–15 tahun."</div></div>
             <div class="law-article"><div class="law-title">Pasal 11</div><div class="law-quote">"Pemerintah wajib menyediakan layanan pendidikan yang bermutu tanpa diskriminasi."</div></div>
@@ -398,12 +518,19 @@ elif st.session_state.current_page == "Katalog":
     st.markdown("""
     <div style="background:#1E293B; padding:30px; border-radius:20px; margin-bottom:30px;">
         <h2 style="color:white;">📍 Data Donatur</h2>
+<<<<<<< HEAD
     </div>
+=======
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
     """, unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     with col1:
+<<<<<<< HEAD
         kecamatan = st.selectbox("Kecamatan", ["Banyumanik", "Candisari", "Gajahmungkur", "Gayamsari", "Genuk", "Gunungpati", "Mijen", "Ngaliyan", "Pedurungan", "Semarang Barat", "Semarang Selatan", "Semarang Tengah", "Semarang Timur", "Semarang Utara", "Tembalang", "Tugu"], index=0)
+=======
+        kecamatan = st.selectbox("Kecamatan", ["Banyumanik", "Candisari", "Gajahmungkur", "Gayamsari", "Genuk", "Gunungpati", "Mijen", "Ngaliyan", "Pedurungan", "Semarang Barat", "Semarang Selatan", "Semarang Tengah", "Semarang Timur", "Semarang Utara", "Tembalang", "Tugu"], index=15)
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
         st.session_state.form_kecamatan = kecamatan
         bot.lokasi = kecamatan
     with col2:
@@ -480,12 +607,18 @@ elif st.session_state.current_page == "Keranjang":
 # =====================================================
 elif st.session_state.current_page == "Chatbot":
     st.header("🤖 Chatbot Donasi")
+<<<<<<< HEAD
     st.markdown("<p style='color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Asisten cerdas untuk membantu Anda memilih program, mengelola donasi, dan melakukan checkout melalui percakapan.</p>", unsafe_allow_html=True)
     
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
     
+=======
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+>>>>>>> 64ac0fa63418814f49c905eece136ae588d3a9b3
     prompt = st.chat_input("Contoh: halo, menu, 2 pulpen, keranjang, checkout")
     if prompt:
         st.session_state.messages.append({"role": "user", "content": prompt})
