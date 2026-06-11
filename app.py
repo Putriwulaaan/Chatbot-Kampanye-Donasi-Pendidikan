@@ -384,7 +384,6 @@ if st.session_state.current_page == "Beranda":
     <div class="hero-section">
         <h1 class="hero-title">🎓 Donasi Fasilitas Pembelajaran Anak Kurang Mampu</h1>
         <p class="hero-subtitle">
-            Program donasi sosial untuk membantu penyediaan buku pembelajaran, alat tulis siswa, fasilitas belajar, biaya operasional pengajar sukarela, dan beasiswa bagi anak-anak kurang mampu di Kota Semarang.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -734,10 +733,6 @@ with st.sidebar:
     jumlah_item = sum(item["qty"] for item in bot.engine.cart)
     st.write(f"Jumlah Item : **{jumlah_item}**")
     st.write(f"Total Donasi : **Rp {bot.calculate_total():,}**")
-
-    st.divider()
-    st.subheader("📌 Status FSM")
-    st.code(bot.state.name)
 
     st.divider()
     st.subheader("💡 Contoh Perintah Chatbot")
